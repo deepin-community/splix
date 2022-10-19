@@ -1,0 +1,3 @@
+version=3
+opts=uversionmangle=s/-/~/ \
+http://sf.net/splix/splix-(.*)\.tar\.bz2

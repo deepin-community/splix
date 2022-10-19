@@ -1,0 +1,5 @@
+0001-Fix-alignment-problem-on-armel.patch
+0002-Set-IFS-when-looping-over-the-file-to-avoid-letting-.patch
+0003-Fix-the-aready-already-typo.patch
+0004-Set-debian-build-flags-during-build.patch
+0005-Use-compilers-passed-to-make.patch

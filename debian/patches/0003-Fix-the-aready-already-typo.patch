@@ -1,0 +1,40 @@
+From b5711388adaee9fe3980006a2915dc09e80aa942 Mon Sep 17 00:00:00 2001
+From: Didier Raboud <Didier Raboud>
+Date: Sat, 10 Feb 2018 17:11:45 +0100
+Subject: =?UTF-8?q?Fix=20the=20'aready'=20=E2=86=92=20'already'=20typo?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Last-Update: 2016-06-12
+---
+ src/algo0x0d.cpp | 2 +-
+ src/cache.cpp    | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/algo0x0d.cpp b/src/algo0x0d.cpp
+index 5489886..6514999 100644
+--- a/src/algo0x0d.cpp
++++ b/src/algo0x0d.cpp
+@@ -448,7 +448,7 @@ BandPlane * Algo0x0D::compress(const Request & request, unsigned char *data,
+     /* Zero value byte padding for data size alignment to 4-byte boundary. */
+     unsigned long zerosPad = 4 - ( outputSize % 4 );
+ 
+-    /* Pad anyway even if aready aligned. */
++    /* Pad anyway even if already aligned. */
+     if ( outputSize + zerosPad <= maximumBufferSize ) {
+         while ( zerosPad-- ) {
+             output[ outputSize++ ] = 0;
+diff --git a/src/cache.cpp b/src/cache.cpp
+index 0602630..8a6a310 100644
+--- a/src/cache.cpp
++++ b/src/cache.cpp
+@@ -569,7 +569,7 @@ bool CacheEntry::restoreIntoMemory()
+ 
+     if (!_tempFile) {
+         ERRORMSG(_("Trying to restore a page instance into memory which is "
+-            "aready into memory"));
++            "already into memory"));
+         return false;
+     }
+ 

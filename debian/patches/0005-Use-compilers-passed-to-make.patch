@@ -1,0 +1,28 @@
+From a6312ab3586cc621ef7f3f3f4d5aae57ee292168 Mon Sep 17 00:00:00 2001
+From: Helmut Grohne <helmut@subdivi.de>
+Date: Sat, 10 Feb 2018 17:11:47 +0100
+Subject: Use compilers passed to make
+
+---
+ rules.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/rules.mk b/rules.mk
+index 26ce4b5..17ca407 100644
+--- a/rules.mk
++++ b/rules.mk
+@@ -6,12 +6,12 @@
+ 
+ $(rastertoqpdl_TARGET): $(rastertoqpdl_OBJ)
+ 	$(call printCmd, $(cmd_link))
+-	$(Q)g++ -o $@ $^ $(rastertoqpdl_CXXFLAGS) $(rastertoqpdl_LDFLAGS) \
++	$(Q)$(CXX) -o $@ $^ $(rastertoqpdl_CXXFLAGS) $(rastertoqpdl_LDFLAGS) \
+ 		$(rastertoqpdl_LIBS)
+ 
+ $(pstoqpdl_TARGET): $(pstoqpdl_OBJ)
+ 	$(call printCmd, $(cmd_link))
+-	$(Q)g++ -o $@ $^ $(pstoqpdl_CXXFLAGS) $(pstoqpdl_LDFLAGS) \
++	$(Q)$(CXX) -o $@ $^ $(pstoqpdl_CXXFLAGS) $(pstoqpdl_LDFLAGS) \
+ 		$(pstoqpdl_LIBS)
+ 
+ .PHONY: install installcms

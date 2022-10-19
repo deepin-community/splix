@@ -1,0 +1,26 @@
+From c42f94918e6b1fee3371242a6c9751a324106a67 Mon Sep 17 00:00:00 2001
+From: Didier Raboud <Didier Raboud>
+Date: Sat, 10 Feb 2018 17:11:44 +0100
+Subject: Set IFS when looping over the file to avoid letting /bin/bash trim
+ the whitespace
+
+ as this makes the build unreproducible.
+ The whitespace in the original .drv.in files should be fixed nevertheless.
+Last-Update: 2016-06-12
+---
+ ppd/compile.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ppd/compile.sh b/ppd/compile.sh
+index d44a3ae..79f5445 100755
+--- a/ppd/compile.sh
++++ b/ppd/compile.sh
+@@ -14,7 +14,7 @@
+ # Function parseFile
+ #
+ parseFile() {
+-    while read LINE; do
++    while IFS= read LINE; do
+         if [ -n "`echo "$LINE" | grep '^[ \t]*#import[ \t]*"[a-zA-Z0-9\.\-]*"'`" ]; then
+             FILE=`echo "$LINE" | sed -re 's/[ \t]*#import[ \t]"([a-zA-Z0-9\.\-]*)"/\1/'`
+             parseFile $FILE $2

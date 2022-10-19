@@ -1,0 +1,30 @@
+From abaeacb60a6936304e2e940961ba95675e2c8066 Mon Sep 17 00:00:00 2001
+From: Luca Niccoli <lultimouomo@gmail.com>
+Date: Mon, 12 Aug 2013 13:50:08 +0200
+Subject: Set debian build flags during build.
+
+Signed-off-by: Luca Niccoli <lultimouomo@gmail.com>
+---
+ module.mk | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/module.mk b/module.mk
+index 9b6229c..ec84ace 100644
+--- a/module.mk
++++ b/module.mk
+@@ -28,12 +28,12 @@ DRV_ONLY		?= 0
+ 
+ 
+ # Flags
+-CXXFLAGS		+= `cups-config --cflags` -Iinclude -Wall -I/opt/local/include
++CXXFLAGS		+= $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS) `cups-config --cflags` -Iinclude -Wall -I/opt/local/include
+ DEBUG_CXXFLAGS		+= -DDEBUG  -DDUMP_CACHE
+ OPTIM_CXXFLAGS 		+= -g
+-rastertoqpdl_LDFLAGS	:= `cups-config --ldflags` -L/opt/local/lib
++rastertoqpdl_LDFLAGS	:= $(shell dpkg-buildflags --get LDFLAGS) `cups-config --ldflags` -L/opt/local/lib
+ rastertoqpdl_LIBS	:= `cups-config --libs` -lcupsimage
+-pstoqpdl_LDFLAGS	:= `cups-config --ldflags`
++pstoqpdl_LDFLAGS	:= $(shell dpkg-buildflags --get LDFLAGS) `cups-config --ldflags`
+ pstoqpdl_LIBS		:= `cups-config --libs` -lcupsimage
+ 
+ 

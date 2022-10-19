@@ -1,0 +1,230 @@
+splix (2.0.0+svn315-7) unstable; urgency=medium
+
+  * Team upload
+
+  * Bump Standards-Version to 4.1.3 without changes needed
+  * Update Vcs-* fields for the move to salsa.d.o
+  * Initialize git-dpm
+
+ -- Didier Raboud <odyx@debian.org>  Sat, 10 Feb 2018 17:12:05 +0100
+
+splix (2.0.0+svn315-6) unstable; urgency=medium
+
+  * Team upload
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: Use triplet-prefixed compilers (Closes: #837182)
+
+  [ Didier Raboud ]
+  * Drop splix transitional package which reached stable
+
+ -- Didier Raboud <odyx@debian.org>  Sun, 11 Sep 2016 16:01:42 +0200
+
+splix (2.0.0+svn315-5) unstable; urgency=medium
+
+  * Team upload
+
+  * Bump S-V to 3.9.8 without changes needed
+  * Add patch to avoid letting bash trim whitespace when compiling .drv files;
+    should make the build reproducible
+  * Add patch to fix the aready/already typo
+  * Set hardening=+all in DEB_BUILD_MAINT_OPTIONS
+
+ -- Didier Raboud <odyx@debian.org>  Sun, 12 Jun 2016 17:04:03 +0200
+
+splix (2.0.0+svn315-4) unstable; urgency=medium
+
+  * Team upload
+
+  [ Didier Raboud <odyx@debian.org> ]
+  * Depend on cups-filters (>= 1.0.36) instead of ghostscript-cups for the
+    gstoraster filter (Closes: #761316)
+
+ -- Didier Raboud <odyx@debian.org>  Thu, 18 Sep 2014 12:19:17 +0200
+
+splix (2.0.0+svn315-3) unstable; urgency=low
+
+  * Team upload
+
+  [ Luca Niccoli ]
+  * Separate build of arch-independent packages
+
+  [ Didier Raboud ]
+  * Move the repository from collab-maint to printing; update the VCS-* fields
+    accordingly
+
+ -- Didier Raboud <odyx@debian.org>  Thu, 17 Apr 2014 08:20:55 +0200
+
+splix (2.0.0+svn315-2) unstable; urgency=low
+
+  * Include missing apport-hook.py in source package
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Wed, 15 Jan 2014 19:40:27 +0100
+
+splix (2.0.0+svn315-1) unstable; urgency=low
+
+  * Imported Upstream SVN snapshot (revision 315)
+    - Add support for Samsung ML-2160 (Closes: #696240).
+    - Add support for Samsung ML-2165.
+  * Drop patches that have been merged upstream
+  * Imported existing quilt patches into gbp-pq and refreshed them for
+    the new upstream version.
+  * Set debian build flags during build.
+  * Fixed splix.ppd-updater (Thanks to Till Kamppeter).
+  * Add apport hook on Ubuntu and derivatives (reduces the package delta).
+  * Add get-orig-source target to fetch recreate the tarball from upstream SVN.
+  * Make build verbose to have more informative buildd logs.
+  * Move package under the Debian Printing Team maintenance.
+  * Bump Standards-Version to 3.9.5 (no changes needed)
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Fri, 03 Jan 2014 19:28:31 +0100
+
+splix (2.0.0+svn306-2) unstable; urgency=low
+
+  * Properly pre-process drv files during build. (Closes: #670823)
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Sun, 29 Apr 2012 13:32:22 +0200
+
+splix (2.0.0+svn306-1) unstable; urgency=low
+
+  * New upstream version: allows installing .drv files instead of PPDs.
+  * The last patent on JBIG has now expired and we have libjbig in
+    Debian, let's use it. (Closes: #457650, #507247)
+  * Bump Standards-Version to 3.9.3 (no changes needed).
+  * Thanks to Didier Raboud for the prevois NMU.
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Mon, 23 Apr 2012 00:01:30 +0200
+
+splix (2.0.0+svn300-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * printer-driver-splix: Add versioned Replaces/Breaks against splix to
+    ensure smooth upgrades (Closes: #655918).
+
+ -- Didier Raboud <odyx@debian.org>  Wed, 01 Feb 2012 19:23:30 +0100
+
+splix (2.0.0+svn300-1) unstable; urgency=low
+
+  * New upstream version: added support for Samsung SCX-3200, rebuilt PPDs
+    with CUPS 1.5.0
+  * splix.ppd-updater belongs in /use/share/cups/ppd-updaters/,  not in
+    /usr/share/ppd-updaters/ (Closes: #649536)
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Sat, 10 Dec 2011 19:23:06 +0100
+
+splix (2.0.0+svn299-2) unstable; urgency=low
+
+  * install splix.ppd-updater in printer-driver-splix, not in splix.
+    (Closes: #649536)
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Fri, 25 Nov 2011 00:06:12 +0100
+
+splix (2.0.0+svn299-1) unstable; urgency=low
+
+  * Import r299 from SVN.
+  * Rename splix to printer-driver-splix. (Closes: #647534)
+  * Replace postinst with a ppd-updater trigger (Closes: #647536)
+    Thanks to Didier Raboud for the reports and the patches.
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Mon, 14 Nov 2011 19:58:32 +0100
+
+splix (2.0.0+svn293-1) unstable; urgency=low
+
+  * Start tracking SVN trunk. (Closes: #594466)
+  * Drop gcc-4.5_fix.patch (merged upstream).
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Sun, 12 Jun 2011 15:35:15 +0200
+
+splix (2.0.0-3) unstable; urgency=low
+
+  * Adopt package: set myself as maintainer and remove Jeroen van Wolffelaar
+    and Pablo Mazzini. Thanks for your work! (Closes: #617819)
+  * Fix compilation with recent toolchain. (Closes: #565097)
+  * Fix clean target that would sometimes enter an infinite loop.
+  * Switch to dpkg-source 3.0 (quilt) format
+  * Bump Standards-Version to 3.9.2 (no changes needed).
+
+ -- Luca Niccoli <lultimouomo@gmail.com>  Sun, 17 Apr 2011 19:29:05 +0200
+
+splix (2.0.0-2.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix alignment to allow printing on ARM, thanks to Luca Niccoli.
+    (Closes: #574349) 
+
+ -- Philipp Kern <pkern@debian.org>  Sun, 03 Oct 2010 10:51:05 +0200
+
+splix (2.0.0-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add optimized/pstoqpdl optimized/rastertoqpdl to dh_clean as proposed
+    by Luca Niccoli (Closes: #574364)
+
+ -- Alexander Reichle-Schmehl <tolimar@debian.org>  Thu, 25 Mar 2010 15:05:49 +0100
+
+splix (2.0.0-2) unstable; urgency=low
+
+  * debian/splix.postinst, debian/control: Added post-install script to
+    automatically update the PPD files of all existing print queues which
+    use this driver to the current version. (Closes: #525822)
+  * debian/control: Added "cups" to Depends: as a running CUPS daemon is needed
+    for the automatic update of existing print queues.
+  * debian/control: Added ghostscript-cups dependency.
+
+ -- Pablo Mazzini <pmazzini@gmail.com>  Sat, 20 Jun 2009 11:04:16 -0300
+
+splix (2.0.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/watch added
+  * debian/compat: bump to 7
+  * Bump Standards-Version to 3.8.1
+  * droped dpatch together with upstream patches
+
+ -- Pablo Mazzini <pmazzini@gmail.com>  Tue, 07 Apr 2009 10:44:14 -0200
+
+splix (1.0.1-1.2) unstable; urgency=low
+
+  * Non-maintainer upload to fix important usability bug.
+  * Applied patch from upstream that corrects a bug for the ML-2010 
+    printer.  Thanks to Pablo De Napoli for the patch. (Closes: #439817)  
+
+ -- Margarita Manterola <marga@debian.org>  Sun, 12 Oct 2008 15:46:27 +0000
+
+splix (1.0.1-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix Cups build-dependencies (Closes: #487042)
+
+ -- Moritz Muehlenhoff <jmm@debian.org>  Mon, 23 Jun 2008 00:35:11 +0200
+
+splix (1.0.1-1) unstable; urgency=low
+
+  * Introduce Splix to Debian, based on Ubuntu package (thanks Till!)
+    (Closes: #411167)
+  * Added patch by Joost van Blokland to enable page logging
+  * Fix debian/rules clean to also remove produced binary
+
+ -- Jeroen van Wolffelaar <jeroen@wolffelaar.nl>  Sat,  2 Jun 2007 15:31:48 +0200
+
+splix (1.0.1-0ubuntu1) feisty; urgency=low
+
+  * New upstream release
+     o Duplex support
+     o Support for Xerox Phaser 6100
+     o Bug fixes
+  * Removed 10-fix-ppds.dpatch: PPDs fixed upstream
+  * debian/rules: Removed PPDs for Samsung CLP-300 and CLP-600, these 
+    printers are known to not work with this release of the driver.
+
+ -- Till Kamppeter <till.kamppeter@gmail.com>  Wed,  7 Feb 2007 10:44:10 +0000
+
+splix (1.0.1~beta2-0ubuntu1) feisty; urgency=low
+
+  * Initial Release.  (Closes: LP #59829)
+  * Fixed PPD files
+     o It must be "*LanguageVersion: German", not
+       "*LanguageVersion: Deutsch".
+     o The PPDs for the CLP-600 had "CLP-60" as model name.
+
+ -- Till Kamppeter <till.kamppeter@gmail.com>  Tue, 12 Dec 2006 12:00:00 +0100
